@@ -3,10 +3,13 @@
 import axios from 'axios'
 import './index.scss'
 import { useEffect, useState } from 'react'
+import FilmCard from '../FilmCard'
+import { FilmType } from '../../types'
+
 
 
 export default function FilmList() {
-    const [films, setFilms] = useState([])
+    const [films, setFilms] = useState<FilmType[]>([])
 
     useEffect(() => {
         getFilms()
@@ -28,21 +31,12 @@ export default function FilmList() {
 
     return (
         <ul className='film-list'>
-            {films.map((film) => 
-                <li className='film-card'>
-                    <p>
-                        {film.title}
-                    </p>
-                    <p className='film-overview'>
-                        {film.overview}
-                    </p>
-                    <img src={`https://image.tmdb.org/t/p/original${film.poster_path}`} alt="" />
-                    <p>
-                        {film.vote_average}
-                    </p>
-                </li>
+            {films.map((film) =>
+                <FilmCard
+                    key={film.id}
+                    film={film}
+                />
             )}
-            
         </ul>
     )
 }
