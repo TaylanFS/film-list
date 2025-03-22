@@ -1,4 +1,5 @@
-import { FilmType } from "@/types"
+import { FilmType } from "@/types/film"
+import StarRating from "../StarRating"
 
 export interface Props {
     film: FilmType
@@ -19,21 +20,21 @@ export default function FilmCard(props: Props) {
                 />
             </div>
 
-            <div>
-                <p>
+            <div className="filme-info">
+                <p className="film-title">
                     {film.title}
                 </p>
+
+                <StarRating
+                    rating={film.vote_average}
+                />
             </div>
 
-            
-
-            <p className='film-overview'>
+            <div className="hidden-content">
+                <p className='film-overview'>
                     {film.overview}
-            </p>
-            
-            <p>
-                {film.vote_average}
-            </p>
+                </p>
+            </div>
         </li>
     
     )

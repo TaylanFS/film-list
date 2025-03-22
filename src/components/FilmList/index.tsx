@@ -4,7 +4,7 @@ import axios from 'axios'
 import './index.scss'
 import { useEffect, useState } from 'react'
 import FilmCard from '../FilmCard'
-import { FilmType } from '../../types'
+import { FilmType } from '../../types/film'
 
 
 
